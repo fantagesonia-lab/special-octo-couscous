@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aqua Dream Poster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Fredoka:wght@500;600;700&family=Jua&family=M+PLUS+Rounded+1c:wght@500;700;800&family=Share+Tech+Mono&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="stage" id="stage">
+
+  <!-- ============ the poster (designed at 1080 × 1440, scaled to fit) ============ -->
+  <div class="poster-wrap" id="poster-wrap">
+    <div class="poster-tilt" id="poster-tilt">
+      <div class="poster" id="poster">
+
+        <!-- background -->
+        <div class="bg-sky" aria-hidden="true"></div>
+        <div class="bg-rainbow" aria-hidden="true"></div>
+        <svg class="bg-swirls" viewBox="0 0 1080 1440" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="#fff" stroke-linecap="round">
+            <path d="M-80 430C220 220 640 310 1160 140" stroke-width="7" opacity=".75"/>
+            <path d="M-80 462C240 262 660 344 1160 182" stroke-width="2.5" opacity=".7"/>
+            <circle cx="905" cy="310" r="255" stroke-width="3" opacity=".55"/>
+            <circle cx="905" cy="310" r="208" stroke-width="16" opacity=".2"/>
+            <circle cx="120" cy="1150" r="210" stroke-width="3" opacity=".5"/>
+            <circle cx="120" cy="1150" r="170" stroke-width="12" opacity=".18"/>
+            <path d="M-60 1215C300 1015 720 1275 1150 1035" stroke-width="9" opacity=".6"/>
+            <path d="M-60 1246C300 1056 720 1306 1150 1076" stroke-width="2.5" opacity=".6"/>
+            <path d="M740 780C850 650 1000 660 1130 730" stroke-width="5" opacity=".5"/>
+          </g>
+        </svg>
+        <div class="bg-dots bg-dots--a" aria-hidden="true"></div>
+        <div class="bg-dots bg-dots--b" aria-hidden="true"></div>
+        <div class="bg-dots bg-dots--c" aria-hidden="true"></div>
+
+        <!-- messenger title bar -->
+        <header class="topbar gloss" data-depth="0.25">
+          <span class="tile tile--pink gloss" data-icon="buddy:pink"></span>
+          <div class="topbar-logo">
+            <b>AQUA DREAM</b>
+            <small>.exe ♡ online</small>
+          </div>
+          <span class="globe" data-icon="globe"></span>
+          <div class="loader" aria-hidden="true">
+            <i class="loader-blob"></i>
+            <span class="loader-txt" id="loader-txt">LOVE 87%</span>
+          </div>
+          <span class="globe" data-icon="globe"></span>
+          <span class="topbar-year">2026</span>
+          <span class="tile tile--green gloss" data-icon="heart:pink:5"></span>
+          <span class="win-btns">
+            <i aria-hidden="true">_</i>
+            <i aria-hidden="true">□</i>
+            <button type="button" class="x" id="win-close" aria-label="Close window">×</button>
+          </span>
+        </header>
+
+        <!-- the photo frame, styled as a media player -->
+        <section class="player" id="player" data-depth="0.5" aria-label="Photo frame">
+          <div class="player-sheen" aria-hidden="true"></div>
+          <div class="player-bar">
+            <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="player-name">AquaDream Media Player</span>
+          </div>
+          <div class="photo-frame gloss">
+            <div class="photo-slot" id="photo-slot" tabindex="0" role="button" aria-label="Photo slot: click or drop an image to add a photo">
+              <img id="photo-img" alt="Idol photo" hidden draggable="false">
+              <span class="photo-hint" aria-hidden="true">+ drop a photo</span>
+              <button type="button" class="photo-clear" id="photo-clear" aria-label="Remove photo" hidden>×</button>
+            </div>
+          </div>
+          <div class="player-seek">
+            <span class="lcd-mini" id="pl-time">01:23</span>
+            <div class="seek" id="seek" role="slider" tabindex="0" aria-label="Song position" aria-valuemin="0" aria-valuemax="207" aria-valuenow="83">
+              <i class="seek-fill" id="seek-fill"></i>
+              <i class="seek-thumb" id="seek-thumb"></i>
+            </div>
+            <span class="lcd-mini" id="pl-dur">03:27</span>
+            <svg class="vol" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 9h4l5-4v14l-5-4H3z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+          <div class="player-controls">
+            <button type="button" class="pbtn" data-act="prev" aria-label="Previous track"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.5 5H8v14H5.5zM20 5v14L9.5 12z"/></svg></button>
+            <button type="button" class="pbtn" data-act="back" aria-label="Back 10 seconds"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 5v14L3 12zM21 5v14l-9-7z"/></svg></button>
+            <button type="button" class="pbtn pbtn--play" data-act="play" id="btn-play" aria-label="Pause"></button>
+            <button type="button" class="pbtn" data-act="fwd" aria-label="Forward 10 seconds"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5v14l9-7zM12 5v14l9-7z"/></svg></button>
+            <button type="button" class="pbtn" data-act="next" aria-label="Next track"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5v14l10.5-7zM16 5h2.5v14H16z"/></svg></button>
+          </div>
+        </section>
+
+        <!-- right column: sticker sheet -->
+        <div class="sticker cd" id="s-cd" data-depth="1.1">
+          <button type="button" class="cd-pad" id="cd-pad" aria-label="Play or pause">
+            <svg class="cd-ring" viewBox="0 0 100 100" aria-hidden="true">
+              <g fill="#5a6f96">
+                <path d="M50 6l2.4 5 5.4.6-4 3.7 1.1 5.3L50 18l-4.9 2.6 1.1-5.3-4-3.7 5.4-.6z"/>
+                <path d="M8 50l8-5.5v11z"/>
+                <path d="M92 50l-8-5.5v11z"/>
+                <path d="M50 94c-6-4-9-7-9-10.5 0-2.6 2-4.3 4.4-4.3 2 0 3.6 1.3 4.6 2.8 1-1.5 2.6-2.8 4.6-2.8 2.4 0 4.4 1.7 4.4 4.3 0 3.5-3 6.5-9 10.5z"/>
+              </g>
+            </svg>
+            <span class="cd-play" id="cd-play-icon"></span>
+          </button>
+          <div class="cd-lcd">
+            <span class="cd-state" id="cd-state">▶ PLAYING...</span>
+            <span class="cd-time" id="cd-time">00:01:23</span>
+            <span class="cd-song" id="cd-song">01 · aqua dream</span>
+            <span class="cd-prog"><i id="cd-prog"></i></span>
+          </div>
+        </div>
+
+        <div class="sticker happy" id="s-happy" data-depth="1.3" role="img" aria-label="Happy">
+          <span class="ball" style="--i:0;--c:#5fbcff;--d:#1667d8">H</span>
+          <span class="ball" style="--i:1;--c:#ffa3d0;--d:#e0498f">a</span>
+          <span class="ball" style="--i:2;--c:#a6e663;--d:#3c9e12">p</span>
+          <span class="ball" style="--i:3;--c:#ffe36e;--d:#e3a000">p</span>
+          <span class="ball" style="--i:4;--c:#ffbb6a;--d:#ee700c">y</span>
+        </div>
+
+        <div class="sticker userbox gloss" id="s-userbox" data-depth="1">
+          <span class="userbox-icon" data-icon="buddy:white:5"></span>
+          <p>This user loves <b data-edit="name" contenteditable="true" spellcheck="false">IDOL NAME</b> <span aria-hidden="true">♡</span></p>
+        </div>
+
+        <button type="button" class="sticker pill pill--blue gloss" id="s-about" data-depth="0.9" data-toast="about">About Me</button>
+        <button type="button" class="sticker pill pill--green gloss" id="s-playlist" data-depth="0.9" data-toast="playlist">My Playlist</button>
+        <button type="button" class="sticker pill pill--pink gloss" id="s-love" data-depth="0.9" data-toast="love">Send Love ♡</button>
+
+        <button type="button" class="sticker app-tile app-tile--sky gloss" id="s-tile-1" data-depth="1.2" data-fx="lucky" aria-label="Lucky clover"><span data-icon="clover:green:5"></span></button>
+        <button type="button" class="sticker app-tile app-tile--sea gloss" id="s-tile-2" data-depth="1.2" data-fx="bubbles" aria-label="Blow bubbles"><span data-icon="fish:clown"></span></button>
+        <button type="button" class="sticker app-tile app-tile--rainbow gloss" id="s-tile-3" data-depth="1.2" data-fx="hearts" aria-label="Send hearts"><span data-icon="heart:pink:5"></span></button>
+
+        <div class="sticker mascot" id="s-jelly-blue" data-depth="1.6" data-icon="jelly:blue"></div>
+        <div class="sticker mascot" id="s-jelly-green" data-depth="1.8" data-icon="jelly:green:star:wink"></div>
+
+        <!-- stickers around the frame -->
+        <div class="sticker tag-online" id="s-online" data-depth="1.5">
+          <button type="button" class="tag-star" id="status-btn" aria-label="Change status" data-icon="smiley"></button>
+          <p class="tag-text"><span data-edit="name" contenteditable="true" spellcheck="false">IDOL NAME</span> <span id="tag-status">is Online</span></p>
+        </div>
+        <div class="sticker love-music" id="s-music" data-depth="1.4">I Love Music!! <span aria-hidden="true">♫</span></div>
+        <div class="sticker bubble-heart" id="s-bubble" data-depth="1.7" data-icon="bubble:blue"></div>
+        <div class="sticker heart-pink" id="s-heart" data-depth="1.6" data-icon="heart:pink"></div>
+        <div class="sticker kaomoji" id="s-kao" data-depth="1.2">(*&gt;ω&lt;*)~♡</div>
+        <div class="sticker buddy-white" id="s-buddy" data-depth="1.5" data-icon="buddy:white"></div>
+        <div class="sticker note-blue" id="s-note" data-depth="1.8" data-icon="note:blue"></div>
+        <div class="sticker clover-sm" id="s-clover" data-depth="1.3" data-icon="clover:green"></div>
+
+        <!-- title + release info -->
+        <div class="title-block" id="title-block" data-depth="0.7">
+          <div class="bubble-text" id="bubble-text">
+            <span class="bt bt-back" aria-hidden="true">aqua dream</span>
+            <span class="bt bt-mid" aria-hidden="true">aqua dream</span>
+            <h1 class="bt bt-front" data-edit="title" contenteditable="true" spellcheck="false">aqua dream</h1>
+          </div>
+          <p class="tagline" lang="ko" data-edit="tagline" contenteditable="true" spellcheck="false">아쿠아 드림 ♡ 너에게 닿을 때까지</p>
+          <div class="info-row">
+            <span class="info-pill gloss" data-edit="kind" contenteditable="true" spellcheck="false">1ST MINI ALBUM</span>
+            <span class="lcd-date"><span data-edit="date" contenteditable="true" spellcheck="false">2026.11.07</span> <small>6PM KST</small></span>
+          </div>
+        </div>
+
+        <div class="sticker dday" id="s-dday" data-depth="1.2">
+          <span class="dday-halo" aria-hidden="true"></span>
+          <span class="dday-star" data-icon="puffystar:pink"></span>
+          <span class="dday-text"><small id="dday-label">COMEBACK</small><b id="dday-num">D-30</b></span>
+        </div>
+
+        <div class="sparkles" id="sparkles" aria-hidden="true"></div>
+        <div class="fish-layer" id="fish-layer" aria-hidden="true"></div>
+
+        <footer class="ticker" aria-label="Release information"><div class="ticker-run" id="ticker"></div></footer>
+
+        <canvas class="fx" id="fx" aria-hidden="true"></canvas>
+        <div class="light" aria-hidden="true"></div>
+
+        <div class="toast" id="toast" role="status" aria-live="polite">
+          <div class="toast-bar"><span>AquaDream Messenger</span><span aria-hidden="true">×</span></div>
+          <div class="toast-body">
+            <span class="toast-icon" data-icon="buddy:green:4"></span>
+            <p id="toast-text"></p>
+          </div>
+        </div>
+
+        <div class="burst-layer" id="burst" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ controls around the poster ============ -->
+  <aside class="toolbar" aria-label="Poster controls">
+    <p class="toolbar-name">aqua dream <span>poster kit</span></p>
+    <div class="toolbar-actions">
+      <button type="button" class="tb-btn tb-btn--main" id="btn-photo">Add photo</button>
+      <button type="button" class="tb-btn" id="btn-motion">Pause motion</button>
+      <button type="button" class="tb-btn" id="btn-reset">Reset</button>
+    </div>
+    <ul class="toolbar-tips">
+      <li>Drop a photo into the frame, drag it to reposition, scroll to zoom.</li>
+      <li>Tap the idol name, title, tagline or date to type your own.</li>
+      <li>Drag any sticker to rearrange the layout.</li>
+      <li>Tap the bubbles to pop them.</li>
+    </ul>
+    <input type="file" id="photo-input" accept="image/*" hidden>
+  </aside>
+</main>
+<script src="poster.js"></script>
+</body>
+</html>
